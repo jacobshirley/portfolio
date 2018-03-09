@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block demo %}
+<canvas id="tree-canvas"></canvas>
+<script>
+function getRandomColor() {
+    var letters = '0123456789abcdef'.split('');
+    var color = '';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return "#"+color;
+  }
+
+  function toRadians(degrees) {
+    return degrees * (Math.PI/180);
+  }
+
+  var canvas = $("#tree-canvas");
+  var w = canvas.width();
+  var h = canvas.height();
+
+  canvas.attr("width", w);
+  canvas.attr("height", h);
+
+  var ctx = canvas[0].getContext("2d");
+
+  function randomRange(min, max) {
+    return min+(Math.random()*(max-min));
+  }
+
+  function drawTree(x, y, radius, startAngle, incAngle, randomAngle, startLength, lengthMod, startLineWidth, lineWidthMod, trunkColor, leafColor, leafColorStartRadius, curRadius) {
+    if (curRadius < radius) {
+      var nx = x+(Math.sin(startAngle)*startLength);
+      var ny = y-(Math.cos(startAngle)*startLength);
+
+      if (curRadius < leafColorStartRadius) {
+        ctx.strokeStyle = trunkColor;
+      } else if (curRadius >= leafColorStartRadius) {
+        ctx.strokeStyle = leafColor;
+      }
+
+      ctx.lineWidth = startLineWidth;
+      ctx.moveTo(x, y);
+      ctx.lineTo(nx, ny);
+      ctx.stroke();
+
+      ctx.beginPath();
+      drawTree(nx, ny, radius, startAngle-incAngle+randomRange(-randomAngle, randomAngle), incAngle, randomAngle, startLength*lengthMod, lengthMod, startLineWidth*lineWidthMod, lineWidthMod, trunkColor, leafColor, leafColorStartRadius, curRadius+1);
+      ctx.closePath();
+
+      ctx.beginPath();
+      drawTree(nx, ny, radius, startAngle+incAngle+randomRange(-randomAngle, randomAngle), incAngle, randomAngle, startLength*lengthMod, lengthMod, startLineWidth*lineWidthMod, lineWidthMod, trunkColor, leafColor, leafColorStartRadius, curRadius+1);
+      ctx.closePath();
+    }
+  }
+
+  var vh = h/100;
+
+  drawTree(w/2, h-10, 14, 0, Math.PI*(1/8), Math.PI*(1/13), 20*vh, 0.8, 20, 0.8, getRandomColor(), getRandomColor(), 8, 0);
+</script>
+
+{% endblock %}
+
+{% block description %}
+<h1>Fractals (tree generator)</h1>
+
+<p>Here’s a bit of JavaScript code to generate a random tree using fractals.</p>
+<p>A full version can be seen here.</p>
+
+<pre><code class="language-js">function randomRange(min, max) {
+  return min+(Math.random()*(max-min));
+}
+
+function drawTree(x, y, radius, startAngle, incAngle, randomAngle, startLength, lengthMod, startLineWidth, lineWidthMod, trunkColor, leafColor, leafColorStartRadius, curRadius) {
+  if (curRadius < radius) {
+    var nx = x+(Math.sin(startAngle)*startLength);
+    var ny = y-(Math.cos(startAngle)*startLength);
+
+    if (curRadius < leafColorStartRadius) {
+      ctx.strokeStyle = trunkColor;
+    } else if (curRadius >= leafColorStartRadius) {
+      ctx.strokeStyle = leafColor;
+    }
+
+    ctx.lineWidth = startLineWidth;
+    ctx.moveTo(x, y);
+    ctx.lineTo(nx, ny);
+    ctx.stroke();
+
+    ctx.beginPath();
+    drawTree(nx, ny, radius, startAngle-incAngle+randomRange(-randomAngle, randomAngle), incAngle, randomAngle, startLength*lengthMod, lengthMod, startLineWidth*lineWidthMod, lineWidthMod, trunkColor, leafColor, leafColorStartRadius, curRadius+1);
+    ctx.closePath();
+
+    ctx.beginPath();
+    drawTree(nx, ny, radius, startAngle+incAngle+randomRange(-randomAngle, randomAngle), incAngle, randomAngle, startLength*lengthMod, lengthMod, startLineWidth*lineWidthMod, lineWidthMod, trunkColor, leafColor, leafColorStartRadius, curRadius+1);
+    ctx.closePath();
+  }
+}</code></pre>
+{% endblock %}

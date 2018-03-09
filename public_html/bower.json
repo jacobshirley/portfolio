@@ -1,0 +1,24 @@
+{
+  "name": "portfolio",
+  "authors": [
+    "Jacob Shirley <jakeshirley2@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "jquery": "^3.3.1",
+    "ecollision": "es6"
+  },
+  "dependencies": {
+    "ecollision": "https://github.com/JacobShirley95/ecollision.git#es6"
+  }
+}

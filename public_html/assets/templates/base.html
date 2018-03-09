@@ -1,0 +1,58 @@
+{% if api is not defined %}
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="assets/styles/styles.css">
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/EaselJS/lib/easeljs-0.8.2.min.js"></script>
+        <script src="bower_components/jquery-mousewheel/jquery.mousewheel.min.js"></script>
+        <script src="bower_components/ecollision/dist/ecollision.js"></script>
+        <script type="module" src="assets/js/script.js"></script>
+    </head>
+
+    <body>
+        <canvas id="background"></canvas>
+
+        <div id="portfolio-items" class="row">
+            <div id="container">
+                <a class="js item" data-external href="http://212.56.108.16/jsdominos/">
+                    <div class="item-text">JS Game Engine</div>
+                </a>
+                <a class="pascal item" href="#">
+                    <div class="item-text">Pascal Scripts</div>
+                </a>
+                <a class="js item" href="ecollision">
+                    <div class="item-text">ECollision</div>
+                </a>
+                <a class="java item" href="web-automator">
+                    <div class="item-text">Web Automator</div>
+                </a>
+                <a class="html-css item" href="christinashirley">
+                    <div class="item-text">Christina Shirley</div>
+                </a>
+                <a class="java item" href="pb-script-base">
+                    <div class="item-text">Powerbot Script Base</div>
+                </a>
+                <a class="html-css item" href="university-webdev-blog">
+                    <div class="item-text">University Webdev Blog</div>
+                </a>
+            </div>
+        </div>
+
+        <div id="sidebar">
+            <div id="nav">
+                <a href="index">About</a>
+                <a href="blog">Blog</a>
+            </div>
+            <div id="dynamic-text">
+{% endif %}
+                <div id="description" class="html-css">
+                    {% block description %}
+                    {% endblock %}
+                </div>
+{% if api is not defined %}
+            </div>
+        </div>
+    </body>
+</html>
+{% endif %}
