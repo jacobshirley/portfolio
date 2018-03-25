@@ -1,0 +1,40 @@
+{% extends "base/content.html" %}
+
+{% block demo %}
+
+{% endblock %}
+
+{% block class %} js {% endblock %}
+
+{% block title %}
+JS Game Engine
+{% endblock %}
+
+{% block about %}
+<h2>What it is</h2>
+<p>
+    JS Game Engine is the start of a big project to make it easier for myself and others to create JavaScript games. By bundling together many libraries that are already out there, to support components of a game such as 3D rendering and physics,
+    I wanted to provide a simple-to-use but powerful library of game components in JavaScript, without reinventing the wheel as much as possible.
+</p>
+<h2>Features</h2>
+<p>
+    <ul>
+        <li>Game timers: RenderTimer, GameTimer, etc</li>
+        <li>Three.js 3D rendering and ammo.js (bullet) physics support</li>
+        <li>Netcode: a simple update queue, drawing updates from internal and external (server) sources</li>
+        <li>Lockstep game engine, with more, less-specialised engine types to come</li>
+    </ul>
+</p>
+<h2>The rationale</h2>
+
+<p>
+    JS Game Engine was started with the future direction of JavaScript in mind. From the outset I started writing it in ES6 in order to have the latest class syntax built available, allowing easier extensibility throughout the project.
+</p>
+<p>
+    The idea for JS Game Engine originally came from a multiplayer jenga/dominoes idea, whereby many pieces in a 3D physics environment could be rearranged by anyone connected to the server. I imagined it as a sort of social experiment, to
+    see how long it would take before someone decide to troll everyone and knock down someone's tower of bricks, or push over a whole load of dominoes that had been put up.
+</p>
+<p>
+    This is why the main code in src/ also includes a "dominos.js" file, as a proof of concept.
+</p>
+{% endblock %}

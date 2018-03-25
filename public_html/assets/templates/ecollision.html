@@ -1,17 +1,15 @@
-{% extends "base.html" %}
+{% extends "base/content.html" %}
 
 {% block demo %}
 
 {% endblock %}
 
-{% block sidebarClass %} js {% endblock %}
+{% block class %} js {% endblock %}
 
-{% block description %}
-<h2>ECollision</h2>
-<p>
-    <a class="block" href="http://212.56.108.16/ecollision/demos/demo-1">View demo</a>
-    <a class="block" href="https://github.com/JacobShirley95/ecollision">GitHub</a>
-</p>
+{% block title %}ECollision{% endblock %}
+
+{% block about %}
+<h2>What it is</h2>
 <p>ECollision is a basic elastic/inelastic collision simulation library that I made for my final year A Level project.
 It is designed to help students understand the laws of energy conservation and momentum by controlling the velocity and radius
 of particles in the simulation.
@@ -21,7 +19,8 @@ of particles in the simulation.
     It is currently being ported to the ES6 version of JavaScript, which is now on par with CoffeeScript in features.
 of JavaScript from CoffeeScript.
 </p>
-<p>The background of this portfolio site uses ECollision to simulation the particles
+<h2>Uses</h2>
+<p>The background of this portfolio site uses ECollision to simulate the particles
 moving around the screen.
 </p>
 {% endblock %}

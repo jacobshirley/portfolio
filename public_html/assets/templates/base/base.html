@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Jacob Shirley</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/EaselJS/lib/easeljs.min.js"></script>
+    <script src="bower_components/jquery-mousewheel/jquery.mousewheel.min.js"></script>
+    <script src="bower_components/ecollision/dist/ecollision.js"></script>
+    <script src="assets/js/script.js"></script>
+</head>
+
+<body>
+    {% include "parts/nav.html" %}
+
+    <main class="{% block class %}{% endblock %} light-text">
+        {% block main %}{% endblock %}
+    </main>
+
+    {% include "parts/livereload.html" %}
+</body>
+
+</html>

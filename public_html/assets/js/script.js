@@ -1,32 +1,48 @@
-$(() => {
+var PARTICLES = 30;
+
+$(function()  {
 	/*$(".item").click(() => {
 		$("#sidebar").animate({
 			width: "toggle"
 		});
 	});*/
 
-	$(".item").click(function (ev) {
-		let $this = $(this);
+	$(".item, #nav>a").click(function (ev) {
+		var $this = $(this);
 		if ($this.is("[data-external]"))
 			return;
 
 		ev.preventDefault();
-		let href = $this.attr("href");
-		$.get("api/" + href, (result) => {
-			console.log(result);
+		var href = $this.attr("href");
+		$.get("api/" + href, function (result) {
+			console.log("HELLO");
 			window.history.pushState("object or string", "Title", href);
-			$("#dynamic-text").html(result);
+			var $dT = $("#dynamic-text");
+			$dT.html(result);
+
+			if (window.innerWidth <= 1000) {
+				$('html, body').animate({
+			        scrollTop: $dT.offset().top
+			    }, 500);
+			}
 		});
 	});
 
-	$(window).resize((event) => {
+	$(window).resize(function (event) {
 		sim.resize();
 	});
 
-	let settings = new ecollision.ECollisionSettings();
+	window.addEventListener("orientationchange", function() {
+		sim.resize();
+	}, false);
+
+	var settings = new ecollision.ECollisionSettings();
 	settings.simulation.simulationCanvas = "background";
 
-	let sim = new ecollision.ECollision(settings);
+	settings.graph = null;
+	settings.overlay = null;
+
+	var sim = new ecollision.ECollision(settings);
 
 	function getRandomColor() {
 	    var letters = '0123456789ABCDEF'.split('');
@@ -37,18 +53,20 @@ $(() => {
 	    return color;
 	}
 
-	let c = $("#background");
+	window.simulation = sim;
 
-	let w = c.width();
-	let h = c.height();
+	var c = $("#background");
 
-	let minSpeed = -1;
-	let maxSpeed = 1;
-	let diff = maxSpeed - minSpeed;
+	var w = c.width();
+	var h = c.height();
 
-	for (let i = 0; i < 50; i++) {
-		let r = Math.random();
-		let p = sim.simulationUI.addParticle(Math.random() * w, Math.random() * h, 5 + (r * 20), 1 + (r * 3), getRandomColor());
+	var minSpeed = -1;
+	var maxSpeed = 1;
+	var diff = maxSpeed - minSpeed;
+
+	for (var i = 0; i < PARTICLES; i++) {
+		var r = Math.random();
+		var p = sim.simulationUI.addParticle(Math.random() * w, Math.random() * h, 5 + (r * 20), 1 + (r * 3), getRandomColor());
 
 		p.cOR = 1.0;
 		p.xVel = minSpeed + (Math.random() * diff);

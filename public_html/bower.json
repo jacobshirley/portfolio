@@ -16,7 +16,8 @@
   ],
   "resolutions": {
     "jquery": "^3.3.1",
-    "ecollision": "es6"
+    "ecollision": "es6",
+    "EaselJS": "v1.0.2"
   },
   "dependencies": {
     "ecollision": "https://github.com/JacobShirley95/ecollision.git#es6"
