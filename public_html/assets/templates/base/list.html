@@ -1,21 +1,76 @@
 {% extends "base/base.html" %}
 
-{% block class %}c{% endblock %}
+{% block class %}grey{% endblock %}
 
 {% block main %}
-<div item class="dark-text">
-    <div text>
-        JS Game Engine
+<div about class="dark-text">
+    <h1>JACOB SHIRLEY</h1>
+    <h2>Computer Science student at the University of Brighton</h2>
+    <h2>Interested in just about everything computer-related, I specialise in the Java and JavaScript programming languages.</h2>
+
+    <div links>
+        <a class="block dark-fill" href="https://github.com/JacobShirley95" target="_blank">Github</a>
+        <a id="contact" class="block dark-fill" href="">Contact</a>
     </div>
-    <span description>
-        <p>
-            ... is the start of a project to make it easier for myself and others to create JavaScript games.
-        </p>
-        <a class="block" href="js-game-engine">Learn more</a>
-    </span>
+</div>
+<div wrapper class="dark light-text">
+    <div center>
+        <div portfolio>
+            <div list>
+                <div title>
+                    <a href="ecollision" class="js-hover">ECollision</a>
+                    <div desc>
+                        <p>
+                            {% include "ecollision.html" with {'api': true, 'short_only': true} %}
+                        </p>
+                    </div>
+                </div>
+                <div title>
+                    <a href="js-game-engine" class="js-hover">JS Game Engine</a>
+                    <div desc>
+                        <p>
+                            {% include "js-game-engine.html" with {'api': true, 'short_only': true} %}
+                        </p>
+                    </div>
+                </div>
+                <div title>
+                    <a href="web-automator" class="java-hover">Web Automator</a>
+                    <div desc>
+                        <p>
+                            {% include "web-automator.html" with {'api': true, 'short_only': true} %}
+                        </p>
+                    </div>
+                </div>
+                <div title>
+                    <a href="web-automator" class="c-hover">Arduino Traffic Lights</a>
+                </div>
+                <div title>
+                    <a href="christinashirley" class="html-css-hover">Christina Shirley</a>
+                    <div desc>
+                        <p>
+                            {% include "christinashirley.html" with {'api': true, 'short_only': true} %}
+                        </p>
+                    </div>
+                </div>
+                <div title>
+                    <a href="pb-script-base" class="java-hover">Powerbot Script Base</a>
+                    <div desc>
+                        <p>
+                            {% include "pb-script-base.html" with {'api': true, 'short_only': true} %}
+                        </p>
+                    </div>
+                </div>
+                <div title>
+                    <a href="university-webdev-blog" class="html-css-hover">University Webdev Blog</a>
+                    <div desc>
+                        <p>
+                            {% include "university-webdev-blog.html" with {'api': true, 'short_only': true} %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div item>
-
-</div>
 {% endblock %}
