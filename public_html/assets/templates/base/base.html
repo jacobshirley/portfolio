@@ -18,11 +18,15 @@
 <body>
     {% include "parts/nav.html" %}
 
-    <main class="{% block class %}{% endblock %} light-text">
+    <main class="{{ block('class') }} light-text">
 {% endif %}
         {% block main %}{% endblock %}
 {% if not api %}
+        <footer class="{{ block('class') }} light-text">
+            <p>© 2018 Jacob Shirley<p>
+        </footer>
     </main>
+
 
     {% include "parts/livereload.html" %}
 </body>

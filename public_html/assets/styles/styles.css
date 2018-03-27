@@ -5,6 +5,67 @@ html, body {
     height: 100%;
 }
 
+.white-text {
+    color: white!important;
+}
+
+.light-text {
+    color: rgba(255, 255, 255, .85);
+}
+
+.dark-text {
+    color: #1f1f1f;
+}
+
+.dark-light {
+    background: #1d1d1d;
+}
+
+.light {
+    background: white;
+}
+
+.grey {
+    background: #eaeaea;
+    color: #1f1f1f;
+}
+
+.dark, .dark-fill:hover {
+    background: #1f1f1f;
+}
+
+.js, .js-fill:hover {
+    background: #6867A3;
+}
+
+.js-hover:hover, .js-hover.selected {
+    color: #6867A3!important;
+}
+
+.java, .java-fill:hover{
+    background: #CC3366;
+}
+
+.java-hover:hover, .java-hover.selected {
+    color: #CC3366!important;
+}
+
+.c, .c-fill:hover {
+    background: #3ABECC;
+}
+
+.c-hover:hover, .c-hover.selected {
+    color:#3ABECC!important;
+}
+
+.html-css, .html-css-fill:hover {
+    background: #ca4231;
+}
+
+.html-css-hover:hover, .html-css-hover.selected {
+    color: #ca4231!important;
+}
+
 a {
     text-decoration: none;
 }
@@ -13,8 +74,28 @@ a.hidden {
     display: none!important;
 }
 
-.expand {
-    transition: width 0.3;
+a.block {
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    margin: 0.1em 10px;
+    padding: 7px 25px;
+    color: #1f1f1f;
+    border: 4px solid #1f1f1f;
+    transition: background 0.2s, color 0.2s;
+    #background: rgba(255, 255, 255, 0.5);
+}
+
+footer {
+    text-align: center;
+}
+
+footer p {
+    display: inline-block;
+    padding: 10px 0;
+    margin: 0;
 }
 
 main {
@@ -29,13 +110,17 @@ main {
 
 article {
     box-sizing: border-box;
-    height: 100%;
     width: 100%;
     padding: 20px 20%;
     text-align: justify;
     font-size: 1.4em;
-    color: white;
+    #color: white;
     overflow: auto;
+    min-height: calc(100% - 2em);
+}
+
+article h1, article h2, article h3, article h4, article h5, article h6 {
+    color: white;
 }
 
 article h1 {
@@ -106,7 +191,7 @@ div[list] div[title] {
 }
 
 div[list] div[title] a {
-    font-size: 0.8em;
+    font-size: 0.75em;
     font-weight: bold;
     color: inherit;
     text-decoration: none;
@@ -115,7 +200,7 @@ div[list] div[title] a {
 
 div[list] div[title] a:hover, a.selected {
     color: inherit;
-    font-size: 1.1em!important;
+    font-size: 1em!important;
 }
 
 div[list] div[title]:hover div[desc], div[desc].selected {
@@ -134,7 +219,6 @@ div[desc] {
     padding-left: 60px;
     font-size: 0.7em;
     transition: left 0.3s;
-
 }
 
 div[desc] p {
@@ -176,20 +260,6 @@ div[about] div[links] {
     position: absolute;
     right: 10px;
     top: 70px;
-}
-
-a.block {
-    font-family: 'Poppins', sans-serif;
-    display: inline-block;
-    box-sizing: border-box;
-    text-align: center;
-    text-decoration: none;
-    margin: 0.1em 10px;
-    padding: 7px 25px;
-    color: #1f1f1f;
-    border: 4px solid #1f1f1f;
-    transition: background 0.2s, color 0.2s;
-    #background: rgba(255, 255, 255, 0.5);
 }
 
 div[about] div[links] {
@@ -268,7 +338,7 @@ div[about] div[links] a.block:hover {
 }
 
 .submenu {
-    font-size: 0.8em;
+    font-size: 0.9em;
     color: white;
     #margin: 0 auto;
     z-index: 2;
@@ -282,16 +352,15 @@ div[about] div[links] a.block:hover {
     list-style: none;
     width: 100%;
     margin: 0;
-    text-align: center;
 }
 
 .submenu ul li {
     display: inline-block;
-    padding: 0 20px;
+    padding: 0 10px;
 }
 
 .submenu ul li:not(:last-child)::after {
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
 .submenu ul li a {
@@ -301,67 +370,6 @@ div[about] div[links] a.block:hover {
 
 .submenu ul li a:hover {
     color: #1f1f1f;
-}
-
-.white-text {
-    color: white!important;
-}
-
-.light-text {
-    color: rgba(255, 255, 255, .8);
-}
-
-.dark-text {
-    color: #1f1f1f;
-}
-
-.dark-light {
-    background: #1d1d1d;
-}
-
-.light {
-    background: white;
-}
-
-.grey {
-    background: #eaeaea;
-    color: #1f1f1f;
-}
-
-.dark, .dark-fill:hover {
-    background: #1f1f1f;
-}
-
-.js, .js-fill:hover {
-    background: #6867A3;
-}
-
-.js-hover:hover, .js-hover.selected {
-    color: #6867A3!important;
-}
-
-.java, .java-fill:hover{
-    background: #CC3366;
-}
-
-.java-hover:hover, .java-hover.selected {
-    color: #CC3366!important;
-}
-
-.c, .c-fill:hover {
-    background: #3ABECC;
-}
-
-.c-hover:hover, .c-hover.selected {
-    color:#3ABECC!important;
-}
-
-.html-css, .html-css-fill:hover {
-    background: #FF1F02;
-}
-
-.html-css-hover:hover, .html-css-hover.selected {
-    color: #FF1F02!important;
 }
 
 .email {
