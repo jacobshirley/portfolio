@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+
+{% block ext_title %} - {{ block('title') }}{% endblock %}
+
+{% block main %}
+
+{% if short_only %}
+{% block short %}{% endblock %}
+{% else %}
+<article>
+    <div>
+        <h1>{% block title %}{% endblock %}</h1>
+    </div>
+    {% block about %}
+    {% endblock %}
+</article>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% if not api %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Jacob Shirley {% block ext_title %}{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans|Poppins:400,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/EaselJS/lib/easeljs.min.js"></script>
+    <script src="bower_components/jquery-mousewheel/jquery.mousewheel.min.js"></script>
+    <script src="bower_components/ecollision/dist/ecollision.js"></script>
+    <script src="assets/js/script.js"></script>
+</head>
+
+<body>
+    {% include "parts/nav.html" %}
+
+    <main class="{% block class %}{% endblock %} light-text">
+{% endif %}
+        {% block main %}{% endblock %}
+{% if not api %}
+    </main>
+
+    {% include "parts/livereload.html" %}
+</body>
+
+</html>
+{% endif %}

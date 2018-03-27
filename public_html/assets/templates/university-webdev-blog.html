@@ -1,14 +1,18 @@
-{% extends "base.html" %}
+{% extends "base/content.html" %}
 
-{% block demo %}
+{% block short %}
+A blog following the development of my studies and website design in Web Development
 {% endblock %}
 
-{% block description %}
-<h2>University web development blog</h2>
+{% block class %}html-css{% endblock %}
+{% block title %}University web development blog{% endblock %}
 
-<p><a class="block" href="http://itsuite.it.brighton.ac.uk/js1391/mysite/">View site</a>
-<a class="block" href="https://github.com/JacobShirley95/university-webdev-blog">GitHub</a></p>
-
-<p>A blog following the development of my studies and website design in Web Development at the University of Brighton.
+{% block about %}
 <p>
+    <a class="block html-css-hover" href="http://itsuite.it.brighton.ac.uk/js1391/mysite/">View site</a>
+    <a class="block html-css-hover" href="https://github.com/JacobShirley95/university-webdev-blog">Github</a>
+</p>
+
+<p>A blog following the development of my studies and website design in Web Development at the University of Brighton.</p>
+<p>All the HTML and CSS is HTML5/CSS3 compliant, as required by the university course specification.</p>
 {% endblock %}
