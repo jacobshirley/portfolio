@@ -56,4 +56,77 @@ $(function()  {
 		$this.attr("href", "mailto:jakeshirley2@gmail.com");
 		$this.addClass("email");
 	});
+
+	function MobileMenu($menu, $scrollRef, offset, minPageWidth) {
+		this.$menu = $menu;
+		this.$scrollRef = $scrollRef;
+		this.offset = offset;
+		this.minPageWidth = minPageWidth;
+
+		this.init();
+	}
+
+	MobileMenu.prototype.init = function() {
+		var scrollVel = 0;
+	    var lastScrollY = $(document).scrollTop();
+
+	    var height = this.$menu.outerHeight();
+	    var startPos = parseInt(this.$menu.css("top"));
+	    var startPos2 = startPos;
+
+	    var pos = 0;
+
+	    var _this = this;
+
+	    this.interval = setInterval(function() {
+			if (typeof _this.minPageWidth !== 'undefined' && _this.minPageWidth < $(window).width())
+				return;
+
+	    	var sc = _this.$scrollRef.scrollTop();
+	    	scrollVel = sc - lastScrollY;
+
+	    	pos = parseInt(_this.$menu.css("top"));
+
+	    	if (pos >= startPos - height && pos <= startPos) {
+	    		if (_this.offset && _this.offset !== 0)
+		    		if (sc > _this.offset) {
+			        	startPos = 0;
+			        } else
+			        	startPos = startPos2;
+
+	    		if (pos - scrollVel < startPos - height) {
+	    			scrollVel = pos - startPos + height;
+	    		} else if (pos - scrollVel > startPos) {
+	    			scrollVel = pos - startPos;
+	    		}
+
+	    		_this.$menu.css({top: "-=" + scrollVel});
+	        } else if (pos < startPos - height) {
+				_this.$menu.css({top: (startPos - height) + "px"});
+			} else if (pos > startPos) {
+				_this.$menu.css({top: startPos + "px"});
+			}
+
+	        lastScrollY = sc;
+	    }, 5);
+	}
+
+	MobileMenu.prototype.refresh = function() {
+		this.stop();
+		this.init();
+	}
+
+	MobileMenu.prototype.setOffset = function(offset) {
+		this.offset = offset;
+	}
+
+	MobileMenu.prototype.stop = function() {
+		if (this.interval !== -1) {
+		    clearInterval(this.interval);
+		    this.interval = -1;
+		    this.$menu.css({top: "initial"});
+		}
+	}
+
+	var mobileMenu = new MobileMenu($(".nav-strip").first(), $("main"), 0, 500);
 });
