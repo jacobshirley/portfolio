@@ -51,11 +51,11 @@ html, body {
 }
 
 .c, .c-fill:hover {
-    background: #3ABECC;
+    background: #339ca7;
 }
 
 .c-hover:hover, .c-hover.selected {
-    color:#3ABECC!important;
+    color:#339ca7!important;
 }
 
 .html-css, .html-css-fill:hover {
@@ -238,11 +238,18 @@ div[about] {
     font-weight: bold;
     font-size: 2em;
     text-align: left;
-    padding: 130px 20% 70px 7%;
+    padding: 130px 0 70px 0;
     box-sizing: border-box;
 }
 
-div[about] h1 {
+div[about] div[me] {
+    width: 70%;
+    padding-left: 7%;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+div[about] div[me] h1 {
     margin-top: 0;
     margin-bottom: 0px;
     padding-top: 0%;
@@ -250,26 +257,24 @@ div[about] h1 {
     font-weight: 800;
 }
 
-div[about] h2 {
+div[about] div[me] h2 {
+    display: inline-block;
     margin: 0;
     padding: 0.4em 0.1em;
     font-size: 0.7em;
 }
 
 div[about] div[links] {
-    position: absolute;
-    right: 10px;
-    top: 70px;
-}
-
-div[about] div[links] {
-    width: 250px;
-    padding-top: 80px;
+    display: inline-block;
+    float: right;
+    padding-top: 1em;
+    width: 20%;
 }
 
 div[about] div[links] a.block {
-    min-width: 100%;
     float: right;
+    min-width: 100%;
+
     display: block;
     padding: 5px 20px;
     font-size: 0.9em;
@@ -279,19 +284,22 @@ div[about] div[links] a.block:hover {
     color: white !important;
 }
 
+
+div[about] div[links] a.email {
+    font-size: 0.6em;
+}
+
 .nav-strip {
+    position: fixed;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    position: fixed;
-    #background: #1f1f1f;
     z-index: 2;
     color: white;
     font-family: 'Poppins', sans-serif;
     font-size: 1.4em;
     font-weight: bold;
-    #padding: 10px 0px;
-    line-height: 70px;
+    line-height: 3em;
     background: rgba(255, 255, 255, 0);
     width: 100%;
     text-align: center;
@@ -372,27 +380,31 @@ div[about] div[links] a.block:hover {
     color: #1f1f1f;
 }
 
-.email {
-    font-size: 0.6em;
-}
-
 @media only screen and (max-width: 1000px) {
     div[about] {
-        padding-right: 7%;
         padding-bottom: 45px;
+    }
+
+    div[about] div[me] {
+        width: 100%;
+        padding-right: 7%;
     }
 
     div[links] {
         padding-top: 0.6em!important;
         width: 100%!important;
         position: relative!important;
-        float: none;
+        float: none!important;
         overflow: auto;
         top: auto!important;
         left: 0!important;
+        box-sizing: border-box;
+        padding-left: 7%;
+        padding-right: 7%;
     }
 
     div[links] a.block {
+        float: none!important;
         margin-left: 0;
         margin-right: 0;
     }
@@ -413,6 +425,10 @@ div[about] div[links] a.block:hover {
 
     div[desc] {
         display: none;
+    }
+
+    .nav-strip {
+        font-size: 1em;
     }
 
     article {
