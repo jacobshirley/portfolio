@@ -22,11 +22,10 @@
 {% endif %}
         {% block main %}{% endblock %}
 {% if not api %}
-        <footer class="{{ block('class') }} light-text">
-            <p>© 2018 Jacob Shirley<p>
-        </footer>
+        {% embed "parts/footer.html" %}
+            {% block class %} block('class') {% endblock %}
+        {% endembed %}
     </main>
-
 
     {% include "parts/livereload.html" %}
 </body>
