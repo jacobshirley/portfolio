@@ -1,59 +1,132 @@
-$(() => {
-	/*$(".item").click(() => {
-		$("#sidebar").animate({
-			width: "toggle"
-		});
-	});*/
+var PARTICLES = 30;
+var SWITCH_INTERVAL = 5000;
 
-	$(".item").click(function (ev) {
-		let $this = $(this);
-		if ($this.is("[data-external]"))
+$(function()  {
+	var $items = $("div[title]");
+	var current = 0;
+	var paused = false;
+
+	function select(item) {
+		var $item = $($items.get(item));
+		var $a = $item.find("a");
+		var $desc = $item.find("div[desc]");
+
+		$a.addClass("selected");
+		$desc.addClass("selected");
+	}
+
+	function deselect(item) {
+		var $item = $($items.get(item));
+		var $a = $item.find("a");
+		var $desc = $item.find("div[desc]");
+
+		$a.removeClass("selected");
+		$desc.removeClass("selected");
+	}
+
+	$("div[title]").hover(function() {
+		deselect(current);
+		current = $(this).index();
+		paused = true;
+	}, function() {
+		paused = false;
+	});
+
+	select(current);
+	setInterval(function() {
+		if (paused) {
+			current = 0;
 			return;
+		}
 
-		ev.preventDefault();
-		let href = $this.attr("href");
-		$.get("api/" + href, (result) => {
-			console.log(result);
-			window.history.pushState("object or string", "Title", href);
-			$("#dynamic-text").html(result);
-		});
+		deselect(current);
+
+		current++;
+		current %= $items.length;
+
+		select(current);
+	}, SWITCH_INTERVAL);
+
+	$("#contact").click(function(ev) {
+		var $this = $(this);
+
+		$this.addClass("dark");
+		$this.addClass("white-text");
+		$this.text("jakeshirley2@gmail.com");
+		$this.attr("href", "mailto:jakeshirley2@gmail.com");
+		$this.addClass("email");
 	});
 
-	$(window).resize((event) => {
-		sim.resize();
-	});
+	function MobileMenu($menu, $scrollRef, offset, minPageWidth) {
+		this.$menu = $menu;
+		this.$scrollRef = $scrollRef;
+		this.offset = offset;
+		this.minPageWidth = minPageWidth;
 
-	let settings = new ecollision.ECollisionSettings();
-	settings.simulation.simulationCanvas = "background";
-
-	let sim = new ecollision.ECollision(settings);
-
-	function getRandomColor() {
-	    var letters = '0123456789ABCDEF'.split('');
-	    var color = '#';
-	    for (var i = 0; i < 6; i++) {
-	        color += letters[Math.floor(Math.random() * 16)];
-	    }
-	    return color;
+		this.init();
 	}
 
-	let c = $("#background");
+	MobileMenu.prototype.init = function() {
+		var scrollVel = 0;
+	    var lastScrollY = $(document).scrollTop();
 
-	let w = c.width();
-	let h = c.height();
+	    var height = this.$menu.outerHeight();
+	    var startPos = parseInt(this.$menu.css("top"));
+	    var startPos2 = startPos;
 
-	let minSpeed = -1;
-	let maxSpeed = 1;
-	let diff = maxSpeed - minSpeed;
+	    var pos = 0;
 
-	for (let i = 0; i < 50; i++) {
-		let r = Math.random();
-		let p = sim.simulationUI.addParticle(Math.random() * w, Math.random() * h, 5 + (r * 20), 1 + (r * 3), getRandomColor());
+	    var _this = this;
 
-		p.cOR = 1.0;
-		p.xVel = minSpeed + (Math.random() * diff);
-		p.yVel = minSpeed + (Math.random() * diff);
+	    this.interval = setInterval(function() {
+			if (typeof _this.minPageWidth !== 'undefined' && _this.minPageWidth < $(window).width())
+				return;
+
+	    	var sc = _this.$scrollRef.scrollTop();
+	    	scrollVel = sc - lastScrollY;
+
+	    	pos = parseInt(_this.$menu.css("top"));
+
+	    	if (pos >= startPos - height && pos <= startPos) {
+	    		if (_this.offset && _this.offset !== 0)
+		    		if (sc > _this.offset) {
+			        	startPos = 0;
+			        } else
+			        	startPos = startPos2;
+
+	    		if (pos - scrollVel < startPos - height) {
+	    			scrollVel = pos - startPos + height;
+	    		} else if (pos - scrollVel > startPos) {
+	    			scrollVel = pos - startPos;
+	    		}
+
+	    		_this.$menu.css({top: "-=" + scrollVel});
+	        } else if (pos < startPos - height) {
+				_this.$menu.css({top: (startPos - height) + "px"});
+			} else if (pos > startPos) {
+				_this.$menu.css({top: startPos + "px"});
+			}
+
+	        lastScrollY = sc;
+	    }, 5);
 	}
 
-	sim.start();
+	MobileMenu.prototype.refresh = function() {
+		this.stop();
+		this.init();
+	}
+
+	MobileMenu.prototype.setOffset = function(offset) {
+		this.offset = offset;
+	}
+
+	MobileMenu.prototype.stop = function() {
+		if (this.interval !== -1) {
+		    clearInterval(this.interval);
+		    this.interval = -1;
+		    this.$menu.css({top: "initial"});
+		}
+	}
+
+	var mobileMenu = new MobileMenu($(".nav-strip").first(), $("main"), 0, 500);
 });
