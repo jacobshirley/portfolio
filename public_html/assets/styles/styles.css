@@ -208,7 +208,6 @@ article {
     text-align: justify;
     font-size: 1.4em;
     #color: white;
-    overflow: auto;
     min-height: calc(100% - 2em);
 }
 
@@ -457,6 +456,10 @@ div[desc] p {
     main article a.block {
         width: 100%;
         margin-bottom: 5px;
+    }
+
+    footer {
+        font-size: 0.6em;
     }
 
     .email {

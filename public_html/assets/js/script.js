@@ -79,8 +79,10 @@ $(function()  {
 	    var _this = this;
 
 	    this.interval = setInterval(function() {
-			if (typeof _this.minPageWidth !== 'undefined' && _this.minPageWidth < $(window).width())
+			if (typeof _this.minPageWidth !== 'undefined' && _this.minPageWidth < $(window).width()) {
+				_this.$menu.css({top: "0px"});
 				return;
+			}
 
 	    	var sc = _this.$scrollRef.scrollTop();
 	    	scrollVel = sc - lastScrollY;
