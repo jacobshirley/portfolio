@@ -10,13 +10,7 @@ $loader = new Twig_Loader_Filesystem('assets/templates/');
 
 $twig = new Twig_Environment($loader);
 
-$configuration = [
-    'settings' => [
-        'displayErrorDetails' => true,
-    ],
-];
-
-$c = new \Slim\Container($configuration);
+$c = new \Slim\Container();
 $app = new \Slim\App($c);
 
 $app->get('/', function (Request $request, Response $response) {
