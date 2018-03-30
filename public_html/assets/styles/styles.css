@@ -195,9 +195,6 @@ main {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.2em;
     box-sizing: border-box;
-    overflow: auto;
-    height: 100%;
-
     z-index: 1;
 }
 
@@ -207,7 +204,6 @@ article {
     padding: 70px 20%;
     text-align: justify;
     font-size: 1.4em;
-    #color: white;
     min-height: calc(100% - 2em);
 }
 

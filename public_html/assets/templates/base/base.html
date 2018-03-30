@@ -19,9 +19,7 @@
 {% endif %}
         {% block main %}{% endblock %}
 {% if not api %}
-        {% embed "parts/footer.html" %}
-            {% block class %} block('class') {% endblock %}
-        {% endembed %}
+        {% include "parts/footer.html" with {class: block('class')} %}
     </main>
 
     {% include "parts/livereload.html" %}

@@ -130,5 +130,5 @@ $(function()  {
 		}
 	}
 
-	var mobileMenu = new MobileMenu($(".nav-strip").first(), $("main"), 0, 500);
+	var mobileMenu = new MobileMenu($(".nav-strip").first(), $(document), 0, 500);
 });
