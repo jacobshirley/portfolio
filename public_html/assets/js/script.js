@@ -50,6 +50,9 @@ $(function()  {
 	$("#contact").click(function(ev) {
 		var $this = $(this);
 
+		if (!$this.hasClass("email"))
+			ev.preventDefault();
+
 		$this.addClass("dark");
 		$this.addClass("white-text");
 		$this.text("jakeshirley2@gmail.com");
