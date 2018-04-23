@@ -2,6 +2,6 @@
 # yarn lockfile v1
 
 
-"@bower_components/jquery@jquery/jquery-dist#^3.3.1":
+jquery@^3.3.1:
   version "3.3.1"
-  resolved "https://codeload.github.com/jquery/jquery-dist/tar.gz/9e8ec3d10fad04748176144f108d7355662ae75e"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
