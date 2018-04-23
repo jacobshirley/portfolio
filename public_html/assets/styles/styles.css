@@ -99,7 +99,7 @@ a.block {
     font-family: 'Poppins', sans-serif;
     font-size: 1.4em;
     font-weight: bold;
-    line-height: 3em;
+    line-height: 2.5em;
     background: rgba(255, 255, 255, 0);
     width: 100%;
     text-align: center;
@@ -196,12 +196,14 @@ main {
     font-size: 1.2em;
     box-sizing: border-box;
     z-index: 1;
+    height: 100%;
+    overflow: auto;
 }
 
 article {
     box-sizing: border-box;
     width: 100%;
-    padding: 70px 20%;
+    padding: 70px 13%;
     text-align: justify;
     font-size: 1.4em;
     min-height: calc(100% - 2em);
@@ -256,7 +258,7 @@ div[about] {
     font-weight: bold;
     font-size: 2em;
     text-align: left;
-    padding: 130px 0 70px 0;
+    padding: 160px 0 70px 0;
     box-sizing: border-box;
 }
 
@@ -377,6 +379,11 @@ div[desc] p {
 }
 
 @media only screen and (max-width: 1000px) {
+    main article {
+        font-size: 1.2em;
+        padding-top: 70px;
+    }
+
     div[about] {
         padding-top: 100px;
         padding-bottom: 45px;
@@ -404,6 +411,7 @@ div[desc] p {
         float: none!important;
         margin-left: 0;
         margin-right: 0;
+        margin-bottom: 10px;
     }
 
     div[list] {
