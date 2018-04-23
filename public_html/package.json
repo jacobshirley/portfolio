@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "html5shiv": "^3.7.3",
     "jquery": "^3.3.1"
   }
 }

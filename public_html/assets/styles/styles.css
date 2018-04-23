@@ -192,15 +192,18 @@ footer p {
 }
 
 main {
+    position: absolute; /* Fix for some versions of IE */
+    width: 100%;
+    height: 100%;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.2em;
     box-sizing: border-box;
     z-index: 1;
-    height: 100%;
     overflow: auto;
 }
 
 article {
+    background: inherit; /* Fix for some versions of IE */
     box-sizing: border-box;
     width: 100%;
     padding: 70px 13%;
