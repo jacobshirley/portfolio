@@ -199,7 +199,6 @@ main {
     font-size: 1.2em;
     box-sizing: border-box;
     z-index: 1;
-    overflow: auto;
 }
 
 article {
