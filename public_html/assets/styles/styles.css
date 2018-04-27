@@ -103,8 +103,8 @@ a.block {
     background: rgba(255, 255, 255, 0);
     width: 100%;
     text-align: center;
-    overflow-x: auto;
-    overflow-y: hidden;
+    #overflow-x: auto;
+    #overflow-y: hidden;
     white-space: nowrap;
 }
 
@@ -118,7 +118,8 @@ a.block {
     #float:left;
 }
 
-.nav-strip a, span {
+.nav-strip>a, .nav-strip>span {
+    position: relative;
     display: inline-block;
     min-width: 60px;
     padding: 0 20px;
@@ -135,8 +136,7 @@ a.block {
 }
 
 .nav-strip span:hover .submenu {
-    display: inline-block;
-    height: 0;
+    display: block;
 }
 
 .hidden {
@@ -146,9 +146,19 @@ a.block {
 }
 
 .submenu {
+    position: absolute;
+    #height: 500px;
+    #margin-left: -25%;
     font-size: 0.9em;
     color: white;
-    #margin: 0 auto;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+    #width: 200px;
+    #margin-left: -25%;
+    padding: 0 30px;
+
+    #margin-left: -50%;
     z-index: 2;
     box-sizing: border-box;
 
@@ -163,12 +173,12 @@ a.block {
 }
 
 .submenu ul li {
-    display: inline-block;
-    padding: 0 10px;
+    display: block;
+    padding: 20px 0px;
 }
 
 .submenu ul li:not(:last-child)::after {
-    padding: 0 20px;
+    padding: 0 0px;
 }
 
 .submenu ul li a {
