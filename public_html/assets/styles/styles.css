@@ -88,37 +88,37 @@ a.block {
     #background: rgba(255, 255, 255, 0.5);
 }
 
+.shadow {
+    -webkit-box-shadow: 0px 5px 31px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 31px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 31px -2px rgba(0,0,0,0.75);
+}
 
 .nav-strip {
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
+    z-index: 1;
     color: white;
     font-family: 'Poppins', sans-serif;
     font-size: 1.3em;
     font-weight: bold;
     line-height: 2.5em;
     background: rgba(255, 255, 255, 0);
-    width: 100%;
     text-align: center;
-    #overflow-x: auto;
-    #overflow-y: hidden;
     white-space: nowrap;
+    width: 100%;
 }
 
-.nav-strip ul {
-    #float: right;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    #box-shadow: 0 8px 8px -8px black;
-    #text-align: center;
-    #float:left;
+.nav-strip>.container {
+    position:relative;
+    display: inline-block;
+    #left: 50%;
+    #height:200px;
+    z-index: 2;
+    #transform: translateX(-50%);
 }
 
-.nav-strip>a, .nav-strip>span {
+.nav-strip>span>a, .nav-strip>span>span {
     position: relative;
     display: inline-block;
     min-width: 60px;
@@ -126,8 +126,6 @@ a.block {
     box-sizing: border-box;
 
     text-align: center;
-    transition: max-width 0.5s ease-out;
-    max-width: 1000px;
 }
 
 .nav-strip a {
@@ -135,34 +133,24 @@ a.block {
     text-decoration: none;
 }
 
-.nav-strip span:hover .submenu {
+.nav-strip>span>span:hover .submenu {
     display: block;
 }
 
 .hidden {
     display: none;
-    #max-width: 0!important;
-    #width: 0;
 }
 
 .submenu {
     position: absolute;
-    #height: 500px;
-    #margin-left: -25%;
     font-size: 0.9em;
     color: white;
     margin: 0 auto;
     left: 50%;
     transform: translateX(-50%);
-    #width: 200px;
-    #margin-left: -25%;
     padding: 0 30px;
-
-    #margin-left: -50%;
-    z-index: 2;
+    z-index: -1;
     box-sizing: border-box;
-
-    #border: 4px solid #1f1f1f;
 }
 
 .submenu ul {
@@ -170,6 +158,7 @@ a.block {
     list-style: none;
     width: 100%;
     margin: 0;
+    padding: 0;
 }
 
 .submenu ul li {
@@ -184,10 +173,11 @@ a.block {
 .submenu ul li a {
     text-decoration: none;
     color: white;
+    transition: color 0.2s;
 }
 
 .submenu ul li a:hover {
-    color: #1f1f1f;
+    color: #cccccc;
 }
 
 footer {
@@ -208,7 +198,6 @@ main {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.2em;
     box-sizing: border-box;
-    z-index: 1;
 }
 
 article {
@@ -328,7 +317,7 @@ div[wrapper] {
 div[center] {
     margin: 0 auto;
     width: 80%;
-    font-size: 1.62em;
+    font-size: 1.75em;
     padding: 20px;
 }
 
