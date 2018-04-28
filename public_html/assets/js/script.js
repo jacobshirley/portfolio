@@ -60,6 +60,29 @@ $(function()  {
 		$this.addClass("email");
 	});
 
+	let $scrollbar = $(".scrollbar");
+
+	function start() {
+		let dWidth = $(document).width();
+		let width = $(".container").outerWidth();
+		if (dWidth < width) {
+			$scrollbar.addClass("scrollbar-mode");
+			$scrollbar.addClass("shadow");
+		} else {
+			$scrollbar.removeClass("scrollbar-mode");
+			$scrollbar.removeClass("shadow");
+		}
+	}
+
+	$(window).resize(start);
+	start();
+
+	$(".container").hover(function () {
+		$scrollbar.css({height: "10000px"});
+	}, function () {
+		$scrollbar.css({height: "auto"});
+	});
+
 	function MobileMenu($menu, $scrollRef, offset, minPageWidth) {
 		this.$menu = $menu;
 		this.$scrollRef = $scrollRef;
@@ -133,5 +156,5 @@ $(function()  {
 		}
 	}
 
-	var mobileMenu = new MobileMenu($(".nav-strip .container").first(), $(document), 0, 500);
+	var mobileMenu = new MobileMenu($(".nav-strip").first(), $(document), 0, 500);
 });
