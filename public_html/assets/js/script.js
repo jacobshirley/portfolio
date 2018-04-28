@@ -133,5 +133,5 @@ $(function()  {
 		}
 	}
 
-	var mobileMenu = new MobileMenu($(".nav-strip").first(), $(document), 0, 500);
+	var mobileMenu = new MobileMenu($(".nav-strip .container").first(), $(document), 0, 500);
 });
