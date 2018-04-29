@@ -61,10 +61,11 @@ $(function()  {
 	});
 
 	let $scrollbar = $(".scrollbar");
-
+	let $container = $(".container");
+	
 	function start() {
 		let dWidth = $(document).width();
-		let width = $(".container").outerWidth();
+		let width = $container.outerWidth();
 		if (dWidth < width) {
 			$scrollbar.addClass("scrollbar-mode");
 			$scrollbar.addClass("shadow");
