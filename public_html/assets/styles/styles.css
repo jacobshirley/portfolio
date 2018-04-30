@@ -111,9 +111,6 @@ a.block {
 .scrollbar {
     position: relative;
     display: block;
-    z-index: 100;
-    #padding-bottom:25px;
-
 }
 
 .scrollbar-mode {
@@ -224,7 +221,7 @@ article {
     background: inherit; /* Fix for some versions of IE */
     box-sizing: border-box;
     width: 100%;
-    padding: 70px 13%;
+    padding: 70px 18%;
     text-align: justify;
     font-size: 1.4em;
     min-height: calc(100% - 2em);
@@ -468,6 +465,10 @@ div[desc] p {
     main article {
         font-size: 1em;
         padding-top: 70px;
+    }
+
+    main article h1 {
+        word-break: break-word;
     }
 
     /*article h1 {
