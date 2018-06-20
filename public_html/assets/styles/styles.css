@@ -327,13 +327,13 @@ article a.block {
     margin-bottom: 0;
 }
 
-.left {
-    text-align: left;
-    #float: left;
-    padding-right: 20px;
+article .left {
+    float: left;
+    margin-right: 0.83em!important;
+    margin-top: 0.83em;
 }
 
-article video.right {
+article .right {
     float: right;
     margin-left: 0.83em!important;
     margin-top: 0.83em;
@@ -351,17 +351,14 @@ article video.right {
 
 .carousel {
     margin: auto!important;
-    #height: 750px;
+    width: 100%;
     height: auto;
     box-sizing: border-box;
-    padding: 30px 20%;
-
-    width: 100%;
+    padding: 30px 18%;
 }
 
 .carousel>* {
     display: inline-block;
-    #width: 700px;
 }
 
 .carousel img {
@@ -590,8 +587,8 @@ div[desc] p {
         margin-right: 20px;
     }
 
-    article video.right {
-        float: inherit;
+    article video.right, article video.left {
+        float: initial;
         margin-left: 0!important;
         margin-right: 0!important;
         padding: 0 20px;
