@@ -5,6 +5,11 @@ html, body {
     height: 100%;
 }
 
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
 .white-text {
     color: white!important;
 }
@@ -221,17 +226,25 @@ article {
     background: inherit; /* Fix for some versions of IE */
     box-sizing: border-box;
     width: 100%;
-    padding: 70px 18%;
+    padding: 0px 0% 70px 0;
     text-align: justify;
     font-size: 1.4em;
     min-height: calc(100% - 2em);
 }
 
+article>*:not(.image-panel):not(.underlined):not(.no-margins) {
+    margin-left: 18%;
+    margin-right: 18%;
+}
+
 article h1, article h2, article h3, article h4, article h5, article h6 {
     color: white;
+    box-sizing: border-box;
 }
 
 article h1 {
+    margin: 0;
+    padding: 0.83em 0;
     font-family: 'Poppins', sans-serif;
     font-size: 3em;
     position: relative;
@@ -240,8 +253,16 @@ article h1 {
     text-align: center;
 }
 
-article div {
+article div:first-child {
+    padding-top: 70px;
+}
+
+article div.underlined {
     border-bottom: 4px solid #1f1f1f;
+}
+
+article div.dark {
+    background: rgba(0, 0, 0, 0.2);
 }
 
 article div.js {
@@ -266,6 +287,108 @@ article a.block {
     color: white;
     border: none;
     margin: 0 auto;
+}
+
+.image-panel {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    margin: 0;
+    left: 0px;
+    clear: both;
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.image-panel.medium img {
+    width: 40%;
+}
+
+.image-panel.medium .text {
+    width: 58%;
+}
+
+.image-panel .text {
+    box-sizing: border-box;
+    padding: 0 30px;
+    font-style: italic;
+}
+
+.image-panel .text p {
+    padding: 0;
+}
+
+.image-panel .text p:first-child {
+    margin-top: 0;
+}
+
+.image-panel .text p:last-child {
+    margin-bottom: 0;
+}
+
+.left {
+    text-align: left;
+    #float: left;
+    padding-right: 20px;
+}
+
+article video.right {
+    float: right;
+    margin-left: 0.83em!important;
+    margin-top: 0.83em;
+}
+
+.image-panel .text {
+    vertical-align: top;
+    display: inline-block;
+    font-size: 0.8em;
+    position: relative;
+    margin: auto 0;
+    #top: 50%;
+    #transform: translate(0%, -50%);
+}
+
+.carousel {
+    margin: auto!important;
+    #height: 750px;
+    height: auto;
+    box-sizing: border-box;
+    padding: 30px 20%;
+
+    width: 100%;
+}
+
+.carousel>* {
+    display: inline-block;
+    #width: 700px;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel .info {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.carousel>* {
+    #position: relative;
+    #top: 50%;
+    #left: 50%;
+    #transform: translate(-50%, -50%);
+    margin: auto;
+
+}
+
+.carousel>*:not(:first-child) {
+
+    display: none;
+    margin: auto auto;
+    text-align: center;
+
 }
 
 div[about] {
@@ -399,7 +522,6 @@ div[desc] p {
 @media only screen and (max-width: 1000px) {
     main article {
         font-size: 1.2em;
-        padding-top: 70px;
     }
 
     div[about] {
@@ -455,8 +577,26 @@ div[desc] p {
     }
 
     main article {
-        padding: 1em;
+        #padding: 1em;
         text-align: left!important;
+    }
+
+    .carousel {
+        padding: 30px;
+    }
+
+    article>*:not(.image-panel):not(.underlined):not(.no-margins) {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    article video.right {
+        float: inherit;
+        margin-left: 0!important;
+        margin-right: 0!important;
+        padding: 0 20px;
+        box-sizing: border-box;
+        margin-top: 0.83em;
     }
 }
 
@@ -464,7 +604,6 @@ div[desc] p {
 
     main article {
         font-size: 1em;
-        padding-top: 70px;
     }
 
     main article h1 {
@@ -482,6 +621,33 @@ div[desc] p {
     main article a.block {
         width: 100%;
         margin-bottom: 5px;
+    }
+
+    .image-panel {
+        #float:left;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .image-panel.medium>* {
+        width: 100%!important;
+        padding: 0;
+    }
+
+    .image-panel.medium>.text {
+        padding-top: 20px;
+    }
+
+    .image-panel>* {
+        display: block!important;
+    }
+
+    .image-panel>img {
+        order: -1;
+    }
+
+    .carousel {
+        padding: 10px;
     }
 
     footer {

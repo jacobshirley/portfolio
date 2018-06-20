@@ -1,0 +1,94 @@
+{% extends "base/content.html" %} {% block class %} c {% endblock %} {% block short %} As part of an Integrated Group Project module at the University of Brighton, we had to design a game for KS2/KS3 students. The game follows the same fashion as many
+other tycoon games, centred around the theme of maintaining a company and achieving world domination. Made in Unity, this is the result of one semester working on the project. {% endblock %} {% block title %}Server Tycoon{% endblock %} {% block about
+%}
+<div class="dark carousel" data-visible=0>
+    <img src="assets/templates/images/server-tycoon/game_scene_2.png" />
+    <img src="assets/templates/images/server-tycoon/game_scene_1.png" />
+    <img src="assets/templates/images/server-tycoon/game_scene_4.png" />
+    <img src="assets/templates/images/server-tycoon/game_scene_3.png" />
+    <img src="assets/templates/images/server-tycoon/server_fire.png" />
+    <img src="assets/templates/images/server-tycoon/game_scene_5.png" />
+</div>
+<p>
+    <a class="block c-hover" target="_blank" href="http://shirleykitts.com/jake/server-tycoon">Demo</a>
+    <a class="block c-hover" target="_blank" href="https://github.com/JacobShirley95/Server-Tycoon">Github</a>
+</p>
+
+<h2>What it is</h2>
+<p>Server Tycoon is a game I helped to make as part of a group project at university. We had to design a game for KS2 or KS3 students that would aid there learning in some part of the curriculum. We chose computing to be the part of the curriculum that our
+    game would target.</p>
+
+<p>The game follows a similar structure to other tycoon games, and has the main aim of trying to host as many clients as possible on a server to make as much money as possible. You also have to complete small tasks for the client to keep them happy and increase
+    your reputation, whereby you can then take on more high-paying clients. These will require better servers, however.
+</p>
+<h3>Features</h3>
+<ul>
+    <li>Choice of servers which can be placed anywhere in the world</li>
+    <li>Servers can be configured, overclocked and upgraded</li>
+    <li>Economy and time</li>
+    <li>Client generation</li>
+    <li>Server fires</li>
+    <li>Some scenarios for the clients (more to be added)</li>
+</ul>
+<h2>My Contribution</h2>
+<p>
+    My main tasks on the project were to get the server and client systems implemented.
+</p>
+
+<video class="right" autoplay loop>
+  <source src="assets/templates/images/server-tycoon/server_placement.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p>
+    I started off with server placement, giving them a red overlay when they weren’t placeable, and turning them back to normal when they were. This worked out nicely, and each server can be placed anywhere in the room, as long as it’s not on top of anything
+    and allows enough space for the door.
+</p>
+
+<p>I then moved onto the server configuration screen. The interface for this was designed by me using the relatively limited Unity user interface tools – “limited” is the best way to describe them coming from an HTML/CSS background. All the buttons and sliders
+    are functional, and the upgrades actually affect the performance of the server.</p>
+
+<div class="image-panel dark left medium">
+    <img src="assets/templates/images/server-tycoon/server_configuration.png" />
+    <div class="text">
+        <p>This is the main configuration screen I designed for the servers. It is the main hub where players can check the stats of their server, overclock it, and upgrade it.</p>
+        <p>Clients hosted on this server can be selected from a list and have their current server usage displayed, and then optionally removed (-10 reputation per client removed).</p>
+        <p>Ports can be opened, which are required by clients, at the expense of lowered server security (-5% per port opened).</p>
+        <p>The server can be renamed or sold from the panel at the top.</p>
+    </div>
+</div>
+
+<p>
+    The next part was to get the clients generated and loaded onto the server. Originally clients were going to be predefined in a JSON file, but we quickly realised this would negatively impact replayability. Opting for the randomly generated option, I made
+    a word generator which takes a random adjective and noun and puts them together to create a name for a server or client. This can often have hilarious results.
+</p>
+
+<div class="image-panel dark left medium">
+    <div class="text">
+        <p>This is the client selector interface. Server attributes that the client requires are randomly generated and displayed in each field (type, processor, etc).</p>
+        <p>From easy to hard the values get more difficult and require more server power. If the player's reputation is too low some types of client cannot be taken on.</p>
+        <p>Clients can also be declined, but the player will have to wait around 10 seconds for a new one to be generated.</p>
+    </div>
+    <img src="assets/templates/images/server-tycoon/client_selector.png" />
+</div>
+<p>
+    Once the client generation was done, I had to make a user interface to display them in. I designed this user interface myself so it can automatically extend to any number of client-difficulty types added. Other parts of the project I designed are the
+    server purchase list, the client list in the bottom right of the screen, and the Python programming scenario, which uses an actual Python interpreter for C# known as “Iron Python”.
+</p>
+<p>
+    The last large part of the game I worked on was the tutorial – the guy called Pan who follows the player through the systems of the game, explaining what each interface does, and some of the concepts behind the curriculum (though the main information
+    about each subject is in the bookshelf). Throughout the whole project, I was also constantly fixing bugs and adding small improvements here and there.
+</p>
+<h2>Teamwork</h2>
+<p>
+    From the start of this process we did not really have a true leader for the project, which worked relatively well most of the time as we could all do whatever job we wanted. This is similar to how the Agile methodology works, where there is a lot of fluidity
+    in how tasks are assigned to programmers. We would usually just decide an outline of the work we’d each individually do. For instance, I said I would do the server placements, and that grew into the whole of the server functionality and clients as
+    well. Some parts of the project, however, could have benefited from some more predefined strategies from the start, such as project structuring so we would know how to organise our code and not accidently overwrite some of the features that someone
+    else on the project had added.
+</p>
+<h2>Reflection</h2>
+<p>
+    As said above, I think a leader would have been helpful during parts of the project. I learned how to use Unity for the first time. Despite the ups and downs throughout, I am very proud of the work we have achieved in a limited time span, without any
+    pre-existing knowledge of the Unity environment, and never having worked on a project of this scale.
+</p>
+
+{% endblock %}
