@@ -5,19 +5,22 @@ $(function()  {
 	var $carousel = $(".carousel");
 	var CAROUSEL_INTERVAL = 5000;
 
-	setInterval(function() {
-		var visibleId = $carousel.attr("data-visible") || 0;
+	if ($carousel.find("img").length > 1) {
 
-		$($carousel.children()[visibleId]).fadeTo("fast", 0, function() {
-			$(this).hide();
+		setInterval(function() {
+			var visibleId = $carousel.attr("data-visible") || 0;
 
-			visibleId++;
-			visibleId %= $carousel.children().length;
+			$($carousel.children()[visibleId]).fadeTo("fast", 0, function() {
+				$(this).hide();
 
-			$carousel.attr("data-visible", visibleId);
-			$($carousel.children()[visibleId]).show().fadeTo("fast", 1);
-		});
-	}, CAROUSEL_INTERVAL);
+				visibleId++;
+				visibleId %= $carousel.children().length;
+
+				$carousel.attr("data-visible", visibleId);
+				$($carousel.children()[visibleId]).show().fadeTo("fast", 1);
+			});
+		}, CAROUSEL_INTERVAL);
+	}
 
 	var $items = $("div[title]");
 	var current = 0;
