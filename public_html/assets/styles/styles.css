@@ -164,7 +164,7 @@ a.block {
     box-sizing: border-box;
 }
 
-.nav-strip .container *:first-child .submenu {
+.nav-strip .container *:nth-child(2) .submenu {
     left: 0%;
     transform: translateX(0%);
 }

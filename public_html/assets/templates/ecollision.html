@@ -11,6 +11,7 @@ of particles in the simulation.
 {% block title %}ECollision{% endblock %}
 
 {% block about %}
+
 <p>
     <a class="block js-hover" href="http://shirleykitts.com/jake/ecollision/demos/demo-1">View demo</a>
     <a class="block js-hover" href="https://github.com/JacobShirley95/ecollision">Github</a>
@@ -25,4 +26,16 @@ of particles in the simulation.
     but I then decided to move over to CoffeeScript, as this has better support for a class syntax.
     It is currently being ported to the ES6 version of JavaScript, which is now on par with CoffeeScript in features.
 </p>
+<p>The rendering of the particles is done by a library called EaselJS. I chose to use StageGL instead of Stage as it uses the WebGL capabilities of the browser (hardware acceleration) to speed up the rendering porcess. I have also tried to keep the rendering and logic as separate of possible, meaning anyone can use this library headless as well.</p>
+<h3>Features</h3>
+<ul>
+    <li>Separate logic and rendering</li>
+    <li>Hardware acceleration</li>
+    <li>Accurate physics behavior</li>
+    <li>Demos featuring a graph and other information about the simulation</li>
+</ul>
+<h3>TO DO</h3>
+<ul>
+    <li>Documentation</li>
+</ul>
 {% endblock %}

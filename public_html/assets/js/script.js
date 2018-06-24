@@ -3,7 +3,7 @@ var SWITCH_INTERVAL = 5000;
 
 $(function()  {
 	var $carousel = $(".carousel");
-	var CAROUSEL_INTERVAL = 5000;
+	var CAROUSEL_INTERVAL = 7000;
 
 	if ($carousel.find("img").length > 1) {
 
