@@ -227,7 +227,6 @@ article {
     box-sizing: border-box;
     width: 100%;
     padding: 0px 0% 70px 0;
-    text-align: justify;
     font-size: 1.4em;
     min-height: calc(100% - 2em);
 }
@@ -305,18 +304,22 @@ article a.block {
     width: 40%;
 }
 
-.image-panel.medium .text {
-    width: 58%;
-}
-
 .image-panel .text {
     box-sizing: border-box;
-    padding: 0 30px;
+    padding: 0 10px;
     font-style: italic;
 }
 
+.image-panel .text:last-child {
+    padding-left: 30px;
+}
+
+.image-panel .text:first-child {
+    padding-right: 30px;
+}
+
 .image-panel .text p {
-    padding: 0;
+    padding: 20px 0;
 }
 
 .image-panel .text p:first-child {
